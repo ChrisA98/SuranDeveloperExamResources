@@ -1,6 +1,7 @@
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# -*- Christopher Adkins -*-
-# -*- sort a list of names and write to a file -*-
+##Christopher Adkins
+##-sort a list of names and write to a file
 import os.path
 
 ##ImportRelFile##
@@ -47,12 +48,12 @@ def WriteFormattedFile(filename, arr):
 
 ##Sort Elements by length
 def SortList(arr):
-    length = len(arr)    
-    out = sorted(origList)  ##Sort List alphabetically
+    out = sorted(arr)  ##Sort List alphabetically
+    length = len(out)    
     for i in range(length):
         for j in range(0,length-i-1):
-            if ( len(arr[j]) > len(arr[j+1])):
-               arr[j], arr[j+1] = arr[j+1], arr[j]
+            if ( len(out[j]) > len(out[j+1])):
+               out[j], out[j+1] = out[j+1], out[j]
     return out
 ##End lengthBubSort
 
