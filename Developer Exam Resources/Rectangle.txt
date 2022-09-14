@@ -1,0 +1,87 @@
+enum color {
+	red;
+	blue;
+	green;
+}
+
+enum direction {
+	up;
+	right;
+	down;
+	left;
+}
+
+class leftSide {
+	DOUBLE len;
+	color c;
+	
+	void init (newLen, newColor) {
+		len = newLen;
+		c=newColor;
+	}
+}
+
+class rightSide {
+	DOUBLE len;
+	color c;
+	
+	void init (newLen, newColor) {
+		len = newLen;
+		c=newColor;
+	}
+}
+
+class bottomSide {
+	DOUBLE len;
+	color c;
+	
+	void init (newLen, newColor) {
+		len = newLen;
+		c=newColor;
+	}
+}
+
+class rect {
+leftSide left;
+rightSide right;
+bottomSide bottom;
+bottomSide top;
+
+integer leftW;
+integer rightW;
+integer bottomW;
+integer topW;
+
+void init (leftSideLen,rightSideLen,bottomSideLen,leftSideColor,rightSideColor,bottomColor,leftWidth,bottomWidth,rightWidth,topSideLen,topColor,topWidth) {
+	left = new leftSide (leftSideLen,leftSideColor);
+	leftW = leftWidth;
+	right = new rightSide (rightSideLen,rigthSideColor);
+	rightW = rightWidth;
+	bottom = new bottomSide (bottomSideLen,bottomColor);
+	bottomW = bottomWidth;
+	top = new bottomSide (topSideLen,topColor);
+	topW = topWidth;
+}
+}
+
+void main
+{
+	rect t = new rect (4,4,4,blue,red,green,1,1,2,4,red,2);
+	GL_move_to(0,0);
+	GL_set_width(t.leftW);
+	GL_set_color(t.left.color);
+	GL_set_direction(up);
+	GL_move(t.left.len);
+	GL_set_width(t.topW);
+	GL_set_color(t.top.color);
+	GL_set_direction(right);
+	GL_move(t.top.len);
+	GL_set_width(t.rigthW);
+	GL_set_color(t.right.color);
+	GL_set_direction(down);
+	GL_move(t.rigth.len);
+	GL_set_width(t.bottomW);
+	GL_set_color(t.bottom.color);
+	GL_set_direction(left);
+	GL_move(t.bottom.len);
+}
