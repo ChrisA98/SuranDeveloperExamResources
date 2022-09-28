@@ -47,15 +47,25 @@ def WriteFormattedFile(filename, arr):
 ##End WriteFormattedFile##
 
 ##Sort Elements by length
-def SortList(arr):
-    out = sorted(arr)  ##Sort List alphabetically
-    length = len(out)    
-    for i in range(length):
-        for j in range(0,length-i-1):
-            if ( len(out[j]) > len(out[j+1])):
-               out[j], out[j+1] = out[j+1], out[j]
-    return out
-##End lengthBubSort
+def SortList(arr, rev=False):
+    if (rev == False):
+        out = sorted(arr)  ##Sort List alphabetically
+        length = len(out)    
+        for i in range(length):
+            for j in range(0,length-i-1):
+                if ( len(out[j]) > len(out[j+1])):
+                    out[j], out[j+1] = out[j+1], out[j]
+        return out
+    else:
+        out = sorted(arr, reverse=True)  ##Sort List alphabetically
+        length = len(out)    
+        for i in range(length):
+            for j in range(0,length-i-1):
+                if ( len(out[j]) < len(out[j+1])):
+                    out[j], out[j+1] = out[j+1], out[j]
+        return out
+
+##End lengthBubSort##
 
 ##PrintList##
 def PrintList(arr):
@@ -66,7 +76,18 @@ def PrintList(arr):
 
 ##Run Program 
 origList = ImportRelFile("Sort Me.txt")
-outList = SortList(origList)
-PrintList(outList)
-WriteFormattedFile('Sorted.txt', outList)
+userInp = ""
+#Loop for user input until valid input is given
+while (userInp == ""):
+    userInp = input("Run reverse sort? (Y/N): ")    #Read user Input
+    if (userInp=="N"):
+        outList = SortList(origList)
+    elif (userInp=="Y"):
+        outList = SortList(origList, rev=True)      #if file is alreasy sorted, reverse sort.
+    else:
+        userInp=""
+        print("Invalid input, please enter either Y or N.")
+
+PrintList(outList)                              #Print output to screen
+WriteFormattedFile('Sorted.txt', outList)       #Write output to output file
 input("File sorted, press Enter to close...")
