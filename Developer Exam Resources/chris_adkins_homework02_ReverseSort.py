@@ -76,18 +76,7 @@ def PrintList(arr):
 
 ##Run Program 
 origList = ImportRelFile("Sort Me.txt")
-userInp = ""
-#Loop for user input until valid input is given
-while (userInp == ""):
-    userInp = input("Run reverse sort? (Y/N): ")    #Read user Input
-    if (userInp=="N"):
-        outList = SortList(origList)
-    elif (userInp=="Y"):
-        outList = SortList(origList, rev=True)      #if file is alreasy sorted, reverse sort.
-    else:
-        userInp=""
-        print("Invalid input, please enter either Y or N.")
 
-PrintList(outList)                              #Print output to screen
-WriteFormattedFile('Sorted.txt', outList)       #Write output to output file
-input("File sorted, press Enter to close...")
+outList = SortList(origList, rev=True)
+
+WriteFormattedFile('Sorted_Rev.txt', outList)       #Write output to output file
