@@ -7,7 +7,7 @@
 		- Output wil be printed to the cmd line as well as to a file named 'Sorted.txt'	
 		- The user may either run chris_adkins_homework02_ForwardSort.py to forward sotr or run chris_adkins_homework02_ReverseSort to reverse sort.
 
- *Homework03 (testing.bat)
+ * Homework03 (testing.bat)
 	- This program will test the validity of the sort commands created by the prior assignment.
 		-The user may run the program and will be alerted if either program fails to match the already validated test cases.
 
